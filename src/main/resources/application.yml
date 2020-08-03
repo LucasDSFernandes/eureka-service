@@ -1,8 +1,11 @@
+---
 server: 
   port: ${PORT:9090} 
+  
 spring:
   application:
     name: eureka-server
+  profiles: prod
 eureka: 
   instance: 
     hostname: ${DOMAIN_NAME}
