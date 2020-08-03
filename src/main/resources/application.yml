@@ -1,14 +1,33 @@
+############################AMBIENTE Heroku####################################
 ---
 server: 
   port: ${PORT:9090} 
   
 spring:
   application:
-    name: eureka-server
+    name: eureka-server-prod
   profiles: prod
 eureka: 
   instance: 
     hostname: ${DOMAIN_NAME}
+  client: 
+    registerWithEureka: false 
+    fetchRegistry: false 
+    serviceUrl: 
+      defaultZone: ${EUREKA_URL}
+---
+############################AMBIENTE Deve ####################################
+
+server: 
+  port: ${PORT:9090} 
+  
+spring:
+  application:
+    name: eureka-server-dev
+  profiles: dev
+eureka: 
+  instance: 
+    hostname: localhost
   client: 
     registerWithEureka: false 
     fetchRegistry: false 
